@@ -32,10 +32,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body className="min-h-screen antialiased bg-background">
+        <body className="min-h-screen bg-zinc-50 antialiased">
           {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
-          <div className="relative flex flex-col min-h-screen">
-            <SiteHeader />
+          <div className="relative flex min-h-screen flex-col">
+            {/* <SiteHeader /> */}
             <div className="flex-1">{children}</div>
           </div>
           <TailwindIndicator />

@@ -13,6 +13,9 @@ module.exports = {
       },
     },
     extend: {
+      height: {
+        scrollscreen: "calc(100vh - 153px)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +49,34 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        outlinedefault: {
+          DEFAULT: "hsl(var(--outline-default))",
+        },
+        primitiveblack: {
+          DEFAULT: "hsl(var(--primitive-black))",
+        },
+        primarybase: {
+          DEFAULT: "hsl(var(--primary-base))",
+        },
+        disabled: {
+          DEFAULT: "hsl(var(--disabled))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+        },
+
+        description: {
+          DEFAULT: "hsl(var(--text-description))",
+        },
+        primarymuted: {
+          DEFAULT: "hsl(var(--primary-muted))",
+        },
+        dashboard: {
+          DEFAULT: "hsl(var(--dashboard-bg))",
+        },
+        placeholder: {
+          DEFAULT: "hsl(var(--placeholder))",
         },
       },
       borderRadius: {

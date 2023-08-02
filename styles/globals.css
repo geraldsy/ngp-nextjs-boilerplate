@@ -34,6 +34,15 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+    --outline-default: 0 0% 89%;
+    --primitive-black: 0 0% 20%;
+    --primary-base: 223 100% 45%;
+    --disabled: 0 0% 93%;
+    --success: 129 58% 61%;
+    --text-description: 219 9% 42%;
+    --primary-muted: 228 56% 98%;
+    --dashboard-bg: 0 0% 95%;
+    --placeholder: 0 0% 69%;
   }
 
   .dark {
