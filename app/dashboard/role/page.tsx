@@ -3,14 +3,16 @@
 import React, { useState } from "react"
 import { PenBox, Trash } from "lucide-react"
 
-import { usersList } from "@/config/users"
+import { roleList } from "@/config/role"
+//this is my sample data
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import { Switch } from "@/components/ui/switch"
 import AvatarLg from "@/components/dashboard/avatar-lg"
 import SearchList from "@/components/dashboard/search-list"
 
-export default function UsersPage() {
-  const data = usersList.sort((a, b) => a.name.localeCompare(b.name))
+export default function RolePage() {
+  const data = roleList.sort((a, b) => a.name.localeCompare(b.name)) //sort the data first
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
   const handleUserSelected = (id: string) => {
@@ -27,7 +29,7 @@ export default function UsersPage() {
     <div className=" grid grid-cols-[300px_1fr] ">
       <SearchList
         data={data}
-        searchName="Agency"
+        searchName="Role"
         onUserSelected={handleUserSelected}
       />
       {/* search single view */}
@@ -40,8 +42,7 @@ export default function UsersPage() {
                 {selectedUserData?.name}
               </span>
               <div className="text-sm">
-                <span>{selectedUserData?.contactnumber}</span> |{" "}
-                <span>{selectedUserData?.email}</span>
+                <span>{selectedUserData?.description}</span>
               </div>
             </div>
           </div>
@@ -74,36 +75,24 @@ export default function UsersPage() {
           <div className="flex justify-between">
             <div>
               <h1 className="text-lg font-semibold text-primitiveblack ">
-                Personal Information
+                Role Permissions
               </h1>
               <p className="text-sm text-description">
                 More Information on Access Control Users
               </p>
             </div>
             <Button className="px-4 py-3 text-xs font-semibold">
-              Update Roles
+              Update Permissions
             </Button>
           </div>
           <hr className="my-6" />
           <div className="grid grid-cols-2 gap-y-6">
-            <div className="flex flex-col gap-y-[6px] ">
-              <p className="text-sm text-description">First Name</p>
-              <p className="text-sm font-semibold">{selectedUserData?.name}</p>
-            </div>
-            <div className="flex flex-col gap-y-[6px] ">
-              <p className="text-sm text-description">Middle Name</p>
-              <p className="text-sm font-semibold">{selectedUserData?.name}</p>
-            </div>
-            <div className="flex flex-col gap-y-[6px] ">
-              <p className="text-sm text-description">Last Name</p>
-              <p className="text-sm font-semibold">{selectedUserData?.name}</p>
-            </div>
-            <div className="flex flex-col gap-y-[6px] ">
-              <p className="text-sm text-description">Contact Number</p>
-              <p className="text-sm font-semibold">
-                {selectedUserData?.contactnumber}
-              </p>
-            </div>
+            {selectedUserData?.permissions.map((role, index) => (
+              <div key={index} className="flex items-center space-x-2">
+                <Checkbox />
+                <label>{role}</label>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,16 +1,17 @@
 "use client"
 
-import path from "path"
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import dictLogo from "@/public/dict-logo.svg"
 import {
+  //declare here the icons used in site.ts and declare this also on the IconMap below
   ArrowLeftRight,
   Cog,
   Laptop2,
   LayoutDashboard,
+  UserCog,
   Users,
 } from "lucide-react"
 
@@ -21,11 +22,13 @@ interface IconMapType {
 }
 
 const IconMap: IconMapType = {
+  //make sure to declare here also the icon
   ArrowLeftRight,
   Cog,
   Laptop2,
   LayoutDashboard,
   Users,
+  UserCog,
 }
 
 export default function MenuList() {

@@ -12,40 +12,21 @@ export const siteConfig = {
           icon: "LayoutDashboard",
           href: "/dashboard",
         },
-        {
-          name: "Transaction",
-          icon: "ArrowLeftRight",
-          href: "/transaction",
-        },
       ],
     },
+
     {
-      category: "Subscribers",
+      category: "Access Control",
       children: [
         {
-          name: "Agencies",
-          icon: "Users2",
-          href: "/dashboard/agencies",
-        },
-      ],
-    },
-    {
-      category: "Settings",
-      children: [
-        {
-          name: "Access Control",
-          icon: "Laptop2",
-          href: "/access-control",
+          name: "Role Permissions",
+          icon: "UserCog",
+          href: "/dashboard/role",
         },
         {
           name: "Users",
           icon: "Users",
           href: "/dashboard/users",
-        },
-        {
-          name: "Settings",
-          icon: "Cog",
-          href: "/settings",
         },
       ],
     },
