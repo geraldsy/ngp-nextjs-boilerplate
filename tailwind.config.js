@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: {
       height: {
-        scrollscreen: "calc(100vh - 153px)",
+        scrollscreen: "calc(100vh - 248px)",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -23,7 +23,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "hsl(var(--primary-base))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -56,9 +56,7 @@ module.exports = {
         primitiveblack: {
           DEFAULT: "hsl(var(--primitive-black))",
         },
-        primarybase: {
-          DEFAULT: "hsl(var(--primary-base))",
-        },
+
         disabled: {
           DEFAULT: "hsl(var(--disabled))",
         },
@@ -69,9 +67,7 @@ module.exports = {
         description: {
           DEFAULT: "hsl(var(--text-description))",
         },
-        primarymuted: {
-          DEFAULT: "hsl(var(--primary-muted))",
-        },
+
         dashboard: {
           DEFAULT: "hsl(var(--dashboard-bg))",
         },

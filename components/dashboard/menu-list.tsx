@@ -1,6 +1,10 @@
+"use client"
+
+import path from "path"
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import dictLogo from "@/public/dict-logo.svg"
 import {
   ArrowLeftRight,
@@ -25,6 +29,8 @@ const IconMap: IconMapType = {
 }
 
 export default function MenuList() {
+  const pathname = usePathname()
+
   return (
     <div className="w-full pt-6 ">
       <Image alt="dict logo" src={dictLogo} className="mx-auto" width={104} />
@@ -37,11 +43,17 @@ export default function MenuList() {
             <ul>
               {item.children.map((child, childIndex) => {
                 const IconComponent = IconMap[child.icon]
+                const isActive = pathname === child.href
+
                 return (
                   <li key={childIndex}>
                     <Link
                       href={child.href}
-                      className="flex w-full items-center gap-2 border-4 border-transparent px-6 py-2 font-bold text-primitiveblack transition-colors hover:border-l-primarybase hover:bg-primarymuted hover:text-primarybase"
+                      className={`hover:bg-primarymuted flex w-full items-center gap-2 border-4 border-transparent px-6 py-2 font-bold  transition-colors hover:border-l-primary hover:text-primary ${
+                        isActive
+                          ? "border-l-primary text-primary"
+                          : "text-primitiveblack"
+                      }`}
                     >
                       {IconComponent && <IconComponent className="h-4 w-4" />}
                       <span className="text-sm">{child.name}</span>

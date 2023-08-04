@@ -1,63 +1,42 @@
 "use client"
 
-import React from "react"
-import { Filter, Search } from "lucide-react"
+import React, { useState } from "react"
 
 import { agenciesList } from "@/config/agencies"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import Avatar from "@/components/dashboard/avatar"
+import { Switch } from "@/components/ui/switch"
+import AvatarLg from "@/components/dashboard/avatar-lg"
+import SearchList from "@/components/dashboard/search-list"
 
 export default function AgenciesPage() {
-  const sortedAgencies = agenciesList.sort((a, b) =>
-    a.AgencyName.localeCompare(b.AgencyName)
-  )
-  const groupedAgencies = sortedAgencies.reduce((groups, agency) => {
-    const letter = agency.AgencyName.charAt(0)
-    if (!groups[letter]) {
-      groups[letter] = []
-    }
-    groups[letter].push(agency)
-    return groups
-  }, {})
+  const data = agenciesList //just call the agency api here
 
   return (
     <div className=" grid grid-cols-[300px_1fr] ">
-      <div className="border border-l-transparent border-r-outlinedefault border-t-transparent">
-        <div className="border-b-outlinedefault bg-white p-6 ">
-          <div className="flex gap-2">
-            <div className="relative">
-              <Input placeholder="Search" className="h-full w-full pl-8" />
-              <Search
-                className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-placeholder"
-                stroke-width="3"
-              />
+      <SearchList data={data} searchName="Agency" />
+      {/* search single view  */}
+      <div className="bg-white">
+        <div className="flex w-full justify-between bg-muted p-6 text-primitiveblack">
+          <div className="flex gap-6">
+            <AvatarLg initials="TT" />
+            <div className="space-y-2">
+              <span className="text-xl font-bold ">
+                Agricultural Training Institute
+              </span>
+              <div className="text-sm">
+                <span>0917 123 4567</span> | <span>ati@email.com</span>
+              </div>
             </div>
+          </div>
 
-            <Button className="rounded border border-outlinedefault bg-zinc-50 p-3 hover:bg-dashboard">
-              <Filter className="h-4 w-4 text-description" />
-            </Button>
+          <div className="flex gap-6">
+            <div className="flex gap-2">
+              <Switch className="data-[state=checked]:bg-success" />
+              <span className="text-sm font-semibold">Active</span>
+            </div>
           </div>
         </div>
-        <ScrollArea className="h-scrollscreen border border-x-transparent border-t-outlinedefault ">
-          {Object.entries(groupedAgencies).map(([letter, agencies]) => (
-            <div key={letter} className="">
-              <h2 className="mx-4">{letter}</h2>
-              {agencies.map((agency, index) => (
-                <div
-                  key={index}
-                  className="flex gap-2 border border-x-transparent border-b-outlinedefault p-4"
-                >
-                  <Avatar initials={agency.AgencyInitial} />
-                  <p>{agency.AgencyName}</p>
-                </div>
-              ))}
-            </div>
-          ))}
-        </ScrollArea>
       </div>
-      <div className="">agency info</div>
+      {/* search single view */}
     </div>
   )
 }

@@ -25,7 +25,7 @@ export const siteConfig = {
         {
           name: "Agencies",
           icon: "Users2",
-          href: "dashboard/agencies",
+          href: "/dashboard/agencies",
         },
       ],
     },
@@ -36,6 +36,11 @@ export const siteConfig = {
           name: "Access Control",
           icon: "Laptop2",
           href: "/access-control",
+        },
+        {
+          name: "Users",
+          icon: "Users",
+          href: "/dashboard/users",
         },
         {
           name: "Settings",

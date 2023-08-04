@@ -15,8 +15,8 @@ export default function LoginCard() {
       <Input type="email" placeholder="admin@email.com" className="mt-2" />
       <h2 className="mt-8 text-sm">Password</h2>
       <Input type="password" placeholder="admin@email.com" className="mt-2" />
-      <Link href="/dashboard">
-        <Button className="mt-7 w-full bg-primarybase text-sm hover:bg-primarybase/90">
+      <Link prefetch={true} href="/dashboard">
+        <Button className="mt-7 w-full bg-primary text-sm hover:bg-primary/90">
           LOG IN
         </Button>
       </Link>

@@ -1,17 +1,17 @@
 "use client"
 
 import React from "react"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { LogOutIcon, UserCog } from "lucide-react"
 import { FaBars, FaHome } from "react-icons/fa"
 
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 import { Button } from "../ui/button"
 import Avatar from "./avatar"
@@ -22,12 +22,12 @@ export default function TopNav() {
 
   return (
     <div className="flex w-full items-center justify-between border-b border-outlinedefault bg-white px-4 py-4 md:px-10">
-      <div className="flex items-center gap-2 font-semibold text-primarybase">
+      <div className="mr-2 flex items-center gap-2 font-semibold text-primary">
         <Sheet>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="flex text-primitiveblack hover:text-primarybase/90 md:hidden"
+              className="flex text-primitiveblack hover:text-primary/90 md:hidden"
             >
               <FaBars className="h-4 w-4" />
             </Button>
@@ -40,7 +40,26 @@ export default function TopNav() {
         <FaHome className="h-4 w-4" />
         <span>{pathname}</span>
       </div>
-      <Avatar initials="GS" />
+      <HoverCard openDelay={0} closeDelay={100}>
+        <HoverCardTrigger>
+          <Avatar initials="GS" />
+        </HoverCardTrigger>
+        <HoverCardContent className="mr-10 flex w-auto flex-col ">
+          <Link
+            href="#"
+            className="flex items-center gap-2 rounded-md bg-white px-4 py-2 hover:bg-muted "
+          >
+            <UserCog className="h-4 w-4" /> Profile
+          </Link>
+          <Link
+            href="#"
+            className="flex items-center gap-2 rounded-md bg-white px-4 py-2 hover:bg-red-600 hover:text-white"
+          >
+            <LogOutIcon className="h-4 w-4" />
+            <span>Logout</span>
+          </Link>
+        </HoverCardContent>
+      </HoverCard>
     </div>
   )
 }

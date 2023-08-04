@@ -9,7 +9,7 @@ interface RootLayoutProps {
 
 export default function DashboardLayout({ children }: RootLayoutProps) {
   return (
-    <div className="flex h-screen w-full ">
+    <div className="flex h-screen w-full bg-dashboard ">
       <SideNav />
       <div className="w-full ">
         <TopNav />

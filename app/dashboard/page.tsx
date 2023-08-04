@@ -57,7 +57,7 @@ export default function DashboardPage() {
             </Popover>
           </div>
         </div>
-        <Button className="flex items-center gap-2 rounded bg-primarybase px-4 py-3 text-xs hover:bg-primarybase/90">
+        <Button className="flex items-center gap-2 rounded bg-primary px-4 py-3 text-xs hover:bg-primary/90">
           <AlertCircle className="h-4 w-4" />
           Export
         </Button>
